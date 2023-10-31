@@ -24,6 +24,16 @@ public class StudentController {
         return studentService.getStudentById(id);
     }
 
+    @GetMapping("/search/{name}")
+    public Student getStudentByName(@PathVariable String name) {
+        Student student = studentService.getStudentByName(name);
+        if (student != null) {
+            return student;
+        } else {
+            return null;
+        }
+    }
+
     @PostMapping
     public Student create(@RequestBody Student student) {
         return studentService.createStudent(student);

@@ -26,6 +26,15 @@ public class StudentService {
         return null; // Gérer le cas où l'étudiant n'est pas trouvé.
     }
 
+    public Student getStudentByName(String name) {
+        for (Student student : students) {
+            if (student.getName().equals(name)) {
+                return student;
+            }
+        }
+        return null; // Gérer le cas où l'étudiant n'est pas trouvé.
+    }
+
     public Student createStudent(Student student) {
         student.setId(nextId++);
         students.add(student);
